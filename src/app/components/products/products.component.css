@@ -1,5 +1,13 @@
 .product {
+  display: flex;
+  flex-wrap: nowrap;
   background: #f4f4f4;
   padding: 10px;
   border-bottom: 1px #ccc dotted;
+  justify-content: space-between;
 }
+.image{
+  width: 128px;
+  height: 128px;
+}
+
