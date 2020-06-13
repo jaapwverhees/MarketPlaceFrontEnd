@@ -1,0 +1,12 @@
+<div>
+  <form class="form" *ngIf="loggedIn == false" (ngSubmit)="onSubmit()">
+    <input type="text" name="email" [(ngModel)]="email" placeholder="email">
+    <input type="passWord" name="password" [(ngModel)]="password" placeholder="password">
+    <input type="submit" value="Login" class="btn">
+  </form>
+  <form class="form" *ngIf="loggedIn" (ngSubmit)="onLogOut()">
+    <label>Welkom, {{visitor.firstname}}   </label>
+    <input type="submit" value="Afmelden" class="btn">
+  </form>
+
+</div>

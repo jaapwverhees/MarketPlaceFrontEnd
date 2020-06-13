@@ -1,0 +1,19 @@
+.header {
+  background: #8fcae7;
+  color: black;
+  text-align: center;
+  padding: 10px;
+}
+.white{
+  background: white;
+  text-align: center;
+}
+
+.header a {
+  color: #fff;
+  text-decoration: none;
+}
+
+h1{
+  font-family: Verdana;
+}
