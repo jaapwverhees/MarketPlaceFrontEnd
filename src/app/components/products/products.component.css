@@ -1,7 +1,7 @@
 .product {
   display: flex;
   flex-wrap: nowrap;
-  background: #f4f4f4;
+  background: white;
   padding: 10px;
   border-bottom: 1px #ccc dotted;
   justify-content: space-between;

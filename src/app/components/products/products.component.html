@@ -4,4 +4,5 @@
     <div>naam   {{product.name}}<br />prijs €{{product.price}}</div>
     <img class="image" [src]="product.image" alt="image"/>
   </div>
+  <h2  *ngIf= "validResults == false">Geen geldige zoekresultaten</h2>
 </div>

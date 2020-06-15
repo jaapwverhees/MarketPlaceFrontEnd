@@ -1,0 +1,14 @@
+
+.push {
+  height: 50px;
+}
+
+.white {
+  background: white;
+}
+
+p {
+  padding: 10px;
+  background: #8fcae7;
+  color: white;
+}

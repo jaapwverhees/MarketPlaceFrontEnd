@@ -1,3 +1,4 @@
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -28,5 +29,25 @@ a {
 }
 
 .btn:hover {
-  background: #666;
+  background: #154273;
+}
+html, body {
+  height: 100%;
+  margin: 0;
+}
+.content {
+  min-height: 100%;
+}
+.content-inside {
+  padding: 20px;
+  padding-bottom: 50px;
+}
+
+body {
+  font-family: Verdana;
+}
+.btn{
+  background: #007bc7;
+  border-color: rgba(0,0,0,0);
+  cursor: pointer;
 }

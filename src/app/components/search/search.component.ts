@@ -1,4 +1,7 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Product} from '../../models/Product';
+import {ProductService} from '../../services/product/product.service';
+import {ProductsComponent} from '../products/products.component';
 
 @Component({
   selector: 'app-search',
@@ -6,22 +9,25 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
   styleUrls: ['./search.component.css']
 })
 export class SearchComponent implements OnInit {
-  @Output() searchProduct: EventEmitter<any> = new EventEmitter();
+  @Output() products = new EventEmitter<Product[]>();
 
-  title: string;
+  query: string;
 
-  constructor() {
+  searchedProduct: Product[];
+
+
+  constructor(private productService: ProductService, private productsComponent: ProductsComponent) {
   }
 
   ngOnInit(): void {
   }
 
   onSubmit() {
-    const query = {
-      title: this.title
-    };
-
-    this.searchProduct.emit(query);
+    this.productService.getProductsByName(this.query).subscribe(products => {
+      this.searchedProduct = products;
+      this.productsComponent.updateProducts(this.searchedProduct);
+    });
+    this.query = null;
   }
 
 }
