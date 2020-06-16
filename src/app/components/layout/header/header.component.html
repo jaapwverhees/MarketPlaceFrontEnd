@@ -4,8 +4,11 @@
   </div>
   <header class="header">
     <h1>Belastingdienst Marketplace</h1>
-    <nav>
-      <app-login></app-login>
+    <nav class="navbar">
+      <a class="a" *ngIf="loggedIn == false" routerLink="/createAccount">creeër Account </a>
+      <a routerLink="/">Home</a>
+      <a *ngIf="loggedIn == false" routerLink="/login">login </a>
+      <a *ngIf="loggedIn == true" [routerLink]="" (click)="logOut()">logout</a>
     </nav>
   </header>
 </div>

@@ -1,3 +1,5 @@
+@import url(https://unpkg.com/bootstrap@4.1.0/dist/css/bootstrap.min.css);
+
 .header {
   background: #8fcae7;
   color: black;
@@ -18,4 +20,22 @@ h1{
   font-family: Verdana;
   color: white;
   border-color: #333333;
+}
+
+.right{
+  text-align: left;
+}
+
+.navbar {
+  display: flex;
+  box-sizing: border-box;
+}
+
+.a {
+  background-color: #8fcae7;
+}
+
+.a :hover {
+  background-color: #eef7fb;
+  background: #eef7fb;
 }

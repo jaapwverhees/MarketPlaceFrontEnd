@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {LoginService} from '../../services/login/login.service';
 import {Visitor} from '../../models/Visitor';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -20,7 +21,9 @@ export class LoginComponent implements OnInit {
 
   inValidUser: boolean;
 
-  constructor(private loginService: LoginService) {
+  constructor(private loginService: LoginService,
+              private route: Router,
+  ) {
   }
 
   ngOnInit(): void {
@@ -35,7 +38,8 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-    this.inValidUser = true;
+    // FIXME laat op de invaliduser div zien igv ongeldige inlog;
+    this.inValidUser = false;
     const credentials = {
       email: this.email,
       password: this.password
@@ -49,7 +53,8 @@ export class LoginComponent implements OnInit {
       sessionStorage.setItem('visitorName', visitor.firstname);
       this.password = null;
       this.email = null;
-      console.log(sessionStorage.getItem('visitorEmail'));
+      //FIXME header word niet ververst.
+      this.route.navigate(['/']);
     });
   }
 

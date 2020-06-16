@@ -1,14 +1,9 @@
-<div>
-  <form class="form" *ngIf="loggedIn == false" (ngSubmit)="onSubmit()">
-    <input type="text" name="email" [(ngModel)]="email" placeholder="email">
-    <input type="passWord" name="password" [(ngModel)]="password" placeholder="password">
-    <input type="submit" value="Login" class="btn space-left">
-  </form>
-  <button type="button" routerLink="/createAccount" class="btn space-left">Creeër account</button>
-
-  <div *ngIf="inValidUser == true">ongeldige gebruiker</div>
-  <form class="form" *ngIf="loggedIn" (ngSubmit)="onLogOut()">
-    <label>Welkom, {{visitor.firstname}}   </label>
-    <input type="submit" value="Afmelden" class="btn">
+<div class="form">
+  <form class="login-form" *ngIf="loggedIn == false" (ngSubmit)="onSubmit()">
+    <input type="text" name="email" [(ngModel)]="email" placeholder="email" />
+    <input type="password" name="password" [(ngModel)]="password" placeholder="password"/>
+    <button>login</button>
+    <div *ngIf="inValidUser == true">ongeldige gebruiker</div>
+    <p class="message">Niet geregistreerd? <a routerLink="/createAccount">Creeër een account</a></p>
   </form>
 </div>
