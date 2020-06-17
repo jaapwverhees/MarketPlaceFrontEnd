@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {LoginService} from '../../services/login/login.service';
 import {Visitor} from '../../models/Visitor';
 import {Router} from '@angular/router';
+import {AuthService} from '../../services/auth/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -23,6 +24,7 @@ export class LoginComponent implements OnInit {
 
   constructor(private loginService: LoginService,
               private route: Router,
+              private authService: AuthService
   ) {
   }
 
@@ -53,7 +55,7 @@ export class LoginComponent implements OnInit {
       sessionStorage.setItem('visitorName', visitor.firstname);
       this.password = null;
       this.email = null;
-      //FIXME header word niet ververst.
+      this.authService.login();
       this.route.navigate(['/']);
     });
   }

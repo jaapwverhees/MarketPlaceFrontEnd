@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {LoginComponent} from '../../login/login.component';
 import {Router} from '@angular/router';
+import {AuthService} from '../../../services/auth/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -9,18 +9,25 @@ import {Router} from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
-  loggedIn: boolean;
+  loggedIn: string;
 
-  constructor(private route: Router) {
+  constructor(private route: Router,
+              private authService: AuthService) {
   }
 
   ngOnInit() {
-    this.loggedIn = sessionStorage.getItem('visitorEmail') != null;
+    this.authService.authState.subscribe((state) => {
+      this.loggedIn = state;
+    });
+    if (this.loggedIn == null){
+      this.loggedIn = 'uitgelogd';
+    }
   }
 
-  logOut(){
+
+  logOut() {
     sessionStorage.clear();
-    this.loggedIn = false;
+    this.authService.logout();
     this.route.navigate(['/']);
   }
 

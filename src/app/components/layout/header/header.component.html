@@ -5,10 +5,10 @@
   <header class="header">
     <h1>Belastingdienst Marketplace</h1>
     <nav class="navbar">
-      <a class="a" *ngIf="loggedIn == false" routerLink="/createAccount">creeër Account </a>
+      <a class="a" *ngIf="loggedIn === 'uitgelogd'" routerLink="/createAccount">creeër Account </a>
       <a routerLink="/">Home</a>
-      <a *ngIf="loggedIn == false" routerLink="/login">login </a>
-      <a *ngIf="loggedIn == true" [routerLink]="" (click)="logOut()">logout</a>
+      <a *ngIf="loggedIn == 'uitgelogd'" routerLink="/login">login </a>
+      <a *ngIf="loggedIn == 'ingelogd'" [routerLink]="" (click)="logOut()">logout</a>
     </nav>
   </header>
 </div>
